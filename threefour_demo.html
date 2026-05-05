@@ -468,6 +468,7 @@
   }
   body.tool-pencil #colorCanvas { cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><circle cx='10' cy='10' r='3' fill='none' stroke='%232D2418' stroke-width='1.4'/></svg>") 10 10, crosshair; }
   body.tool-crayon #colorCanvas { cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><circle cx='14' cy='14' r='8' fill='none' stroke='%232D2418' stroke-width='1.4' stroke-dasharray='2 2'/></svg>") 14 14, crosshair; }
+  body.tool-watercolor #colorCanvas { cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><circle cx='16' cy='16' r='10' fill='none' stroke='%232D2418' stroke-width='1' opacity='0.5'/><circle cx='16' cy='16' r='4' fill='%232D2418' opacity='0.15'/></svg>") 16 16, crosshair; }
   body.tool-eraser #colorCanvas { cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><circle cx='14' cy='14' r='10' fill='none' stroke='%232D2418' stroke-width='1.4'/></svg>") 14 14, crosshair; }
 
   #lineImg {
@@ -837,17 +838,17 @@
       <div class="panel-right">
         <div class="info-label" data-i18n="tools_label">Tools</div>
         <div class="tools-row" style="margin-top:8px">
-          <button class="tool-btn active" data-tool="fill" id="toolFill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11h2m-1-1v2"/><path d="M5.6 5.6a2 2 0 0 1 2.8 0l8.5 8.5a1 1 0 0 1 0 1.4l-5.7 5.7a2 2 0 0 1-2.8 0L1.7 14.4a1 1 0 0 1 0-1.4z"/><path d="M14 7l-3-3"/></svg>
-            <span data-i18n="tool_paint">Paint</span>
-          </button>
-          <button class="tool-btn" data-tool="pencil" id="toolPencil">
+          <button class="tool-btn active" data-tool="pencil" id="toolPencil">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
             <span data-i18n="tool_pencil">Pencil</span>
           </button>
           <button class="tool-btn" data-tool="crayon" id="toolCrayon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6l3 6v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8z"/><path d="M9 2l3 6 3-6"/><path d="M6 14h12"/></svg>
             <span data-i18n="tool_crayon">Crayon</span>
+          </button>
+          <button class="tool-btn" data-tool="watercolor" id="toolWatercolor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-3 5-6 8-6 12a6 6 0 0 0 12 0c0-4-3-7-6-12z"/><path d="M9 14c0 1.5 1.3 3 3 3"/></svg>
+            <span data-i18n="tool_watercolor">Watercolor</span>
           </button>
           <button class="tool-btn" data-tool="eraser" id="toolEraser">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20H7l-4-4 9-9 8 8z"/><path d="M14 6l4 4"/><path d="M3 16l5 5"/></svg>
@@ -865,7 +866,7 @@
           </button>
         </div>
         <div class="tool-hint" id="toolHint">
-          <strong>Paint</strong> · Tap an area to fill it instantly
+          <strong>Pencil</strong> · Soft strokes that build up. <strong>Apple Pencil</strong> pressure supported
         </div>
 
         <div class="size-block" id="sizeBlock">
@@ -968,9 +969,9 @@
         track_placeholder: 'Track placeholder',
         characters: 'Characters',
         tools_label: 'Tools',
-        tool_paint: 'Paint',
         tool_pencil: 'Pencil',
         tool_crayon: 'Crayon',
+        tool_watercolor: 'Watercolor',
         tool_eraser: 'Eraser',
         tool_undo: 'Undo',
         tool_clear: 'Clear',
@@ -983,9 +984,9 @@
         saved: 'Saved',
         cleared: 'Cleared',
         audio_failed: 'Audio playback failed',
-        hint_fill: '<strong>Paint</strong> · Tap an area to fill it instantly',
         hint_pencil: '<strong>Pencil</strong> · Soft strokes that build up. <strong>Apple Pencil</strong> pressure supported',
         hint_crayon: '<strong>Crayon</strong> · Coarse, textured strokes. <strong>Apple Pencil</strong> pressure supported',
+        hint_watercolor: '<strong>Watercolor</strong> · Soft washes that bloom and layer. <strong>Apple Pencil</strong> pressure supported',
         hint_eraser: '<strong>Eraser</strong> · Brush over to remove color'
       },
       ko: {
@@ -1008,9 +1009,9 @@
         track_placeholder: '트랙 준비 중',
         characters: '캐릭터',
         tools_label: '도구',
-        tool_paint: '페인트',
         tool_pencil: '색연필',
         tool_crayon: '크레용',
+        tool_watercolor: '수채화',
         tool_eraser: '지우개',
         tool_undo: '되돌리기',
         tool_clear: '전체 지우기',
@@ -1023,9 +1024,9 @@
         saved: '저장되었습니다',
         cleared: '초기화되었습니다',
         audio_failed: '오디오 재생 실패',
-        hint_fill: '<strong>페인트</strong> · 영역을 탭하면 한 번에 채워져요',
         hint_pencil: '<strong>색연필</strong> · 가는 선이 겹치며 진해져요. <strong>애플펜슬</strong> 압력 지원',
         hint_crayon: '<strong>크레용</strong> · 거친 텍스처로 칠해요. <strong>애플펜슬</strong> 압력 지원',
+        hint_watercolor: '<strong>수채화</strong> · 부드럽게 번지며 층층이 쌓여요. <strong>애플펜슬</strong> 압력 지원',
         hint_eraser: '<strong>지우개</strong> · 칠한 색을 자유롭게 지워요'
       }
     };
@@ -1171,8 +1172,8 @@
         if (e.target === cv) e.preventDefault();
       }, { passive: false });
 
-      setTool('fill');
-      setLang('en'); // default to English for buyer demo
+      setTool('pencil');
+      setLang('en');
     }
 
     function buildGallery() {
@@ -1225,7 +1226,7 @@
             selectedColor = c;
             document.querySelectorAll('.swatch').forEach(s => s.classList.remove('selected'));
             sw.classList.add('selected');
-            if (currentTool === 'eraser') setTool('fill');
+            if (currentTool === 'eraser') setTool('pencil');
           });
           grid.appendChild(sw);
         });
@@ -1335,12 +1336,6 @@
       const { x, y } = getCanvasCoords(e);
       activePointerId = e.pointerId;
 
-      if (currentTool === 'fill') {
-        pushHistory();
-        floodFill(Math.floor(x), Math.floor(y), hexToRgb(selectedColor));
-        return;
-      }
-
       isDrawing = true;
       lastX = x; lastY = y;
       pushHistory();
@@ -1371,6 +1366,7 @@
       const ctx = colorCtx;
       if (currentTool === 'pencil') stampPencil(ctx, x, y, pressure, selectedColor);
       else if (currentTool === 'crayon') stampCrayon(ctx, x, y, pressure, selectedColor);
+      else if (currentTool === 'watercolor') stampWatercolor(ctx, x, y, pressure, selectedColor);
       else if (currentTool === 'eraser') stampEraser(ctx, x, y, pressure);
     }
 
@@ -1379,6 +1375,7 @@
       let stepSize;
       if (currentTool === 'pencil') stepSize = 1.2;
       else if (currentTool === 'crayon') stepSize = 2.0;
+      else if (currentTool === 'watercolor') stepSize = 3.5;
       else stepSize = 3;
       const steps = Math.max(1, Math.ceil(dist / stepSize));
       for (let i = 1; i <= steps; i++) {
@@ -1458,6 +1455,54 @@
       ctx.beginPath();
       ctx.arc(x, y, size, 0, Math.PI * 2);
       ctx.fill();
+      ctx.restore();
+    }
+
+    function stampWatercolor(ctx, x, y, pressure, color) {
+      ctx.save();
+      ctx.globalCompositeOperation = 'source-over';
+      const rgb = hexToRgb(color);
+      if (!rgb) { ctx.restore(); return; }
+
+      const size = (10 + pressure * 24) * brushSize;
+      const baseAlpha = 0.05 + pressure * 0.10;
+
+      // Soft body — radial gradient that fades to transparent at the edge
+      const grad = ctx.createRadialGradient(x, y, 0, x, y, size);
+      grad.addColorStop(0,   `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${baseAlpha})`);
+      grad.addColorStop(0.55,`rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${baseAlpha * 0.75})`);
+      grad.addColorStop(1,   `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0)`);
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(x, y, size, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Wet spots — irregular soft droplets that give the bloom feel
+      const dropCount = 2 + Math.floor(Math.random() * 2);
+      for (let i = 0; i < dropCount; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const r = size * (0.25 + Math.random() * 0.55);
+        const dx = x + Math.cos(angle) * r;
+        const dy = y + Math.sin(angle) * r;
+        const dropSize = size * (0.25 + Math.random() * 0.40);
+        const dropAlpha = baseAlpha * (0.45 + Math.random() * 0.45);
+
+        const dGrad = ctx.createRadialGradient(dx, dy, 0, dx, dy, dropSize);
+        dGrad.addColorStop(0, `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${dropAlpha})`);
+        dGrad.addColorStop(1, `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0)`);
+        ctx.fillStyle = dGrad;
+        ctx.beginPath();
+        ctx.arc(dx, dy, dropSize, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Wet edge — subtle darker rim that watercolor leaves at the boundary
+      ctx.strokeStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${baseAlpha * 1.4})`;
+      ctx.lineWidth = 0.8;
+      ctx.beginPath();
+      ctx.arc(x, y, size * 0.78, 0, Math.PI * 2);
+      ctx.stroke();
+
       ctx.restore();
     }
 
@@ -1578,11 +1623,9 @@
       document.querySelectorAll('[data-tool]').forEach(el => {
         el.classList.toggle('active', el.dataset.tool === tool);
       });
-      document.body.classList.remove('tool-fill','tool-pencil','tool-crayon','tool-eraser');
+      document.body.classList.remove('tool-pencil','tool-crayon','tool-watercolor','tool-eraser');
       document.body.classList.add('tool-' + tool);
       refreshToolHint();
-      const sizeBlock = document.getElementById('sizeBlock');
-      if (sizeBlock) sizeBlock.classList.toggle('disabled', tool === 'fill');
     }
 
     function setBrushSize(s) {
